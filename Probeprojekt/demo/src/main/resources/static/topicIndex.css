@@ -1,0 +1,55 @@
+
+body {
+font-family: 'Arial', sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 0;
+}
+
+h1 {
+text-align: center;
+color: #333;
+}
+
+h2 {
+color: #4285f4;
+}
+a {
+    color: #4285f4;
+    text-decoration: outline;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+a:hover {
+    color: #0d47a1;
+}
+
+p {
+color: #657;
+
+}
+
+.topic-card {
+background-color: #fff;
+border: 1px solid #ddd;
+padding: 15px;
+margin: 10px;
+border-radius: 5px;
+}
+
+hr {
+border: none;
+border-top: 1px solid #ddd;
+margin: 10px 0;
+}
+.average-rating {
+    font-weight: bold;
+    color: #ff9900;
+
+}
+
+.star-image {
+    width: 20px; /
+    height: 25px;
+
+}

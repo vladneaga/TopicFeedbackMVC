@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Topic List</title>
+
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" type="text/css" th:href="@{topicIndex.css}">
+</head>
+
+<body>
+
+<h1>Topic List</h1>
+
+<div th:each="topic : ${topics}" class="topic-card">
+    <h2>
+        <a th:href="@{/topic/{id}(id=${topic.id})}" th:text="${topic.title}"></a>
+    </h2>
+    <p th:text="${topic.text}"></p>
+    <p th:text="${topic.date}"></p>
+    <p>
+        <span class="average-rating" th:text="'Average rating: ' + ${topic.starRating}"></span>
+        <img src="star.png" alt="Topic Image" class="star-image"/>
+    </p>
+    <hr />
+</div>
+
+</body>
+
+</html>

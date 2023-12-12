@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/newFeedback.css}">
+</head>
+<body>
+
+<h1>Feedback Details</h1>
+
+<form action="/topic/newFeedback" method="post">
+    <input type="hidden" name="topicId" th:value="${topicId}" />
+
+    <label>Mark:</label>
+    <!-- Radio buttons for marks 1 to 6 -->
+    <input type="radio" id="mark1" name="numberFeedback" value="1" th:checked="${numberFeedback == 1}"/>
+    <label for="mark1">1</label>
+
+    <input type="radio" id="mark2" name="numberFeedback" value="2"  th:checked="${numberFeedback == 2}"/>
+    <label for="mark2">2</label>
+
+    <input type="radio" id="mark3" name="numberFeedback" value="3"  th:checked="${numberFeedback == 3}"/>
+    <label for="mark3">3</label>
+
+    <input type="radio" id="mark4" name="numberFeedback" value="4" th:checked="${numberFeedback == 4}" />
+    <label for="mark4">4</label>
+
+    <input type="radio" id="mark5" name="numberFeedback" value="5" th:checked="${numberFeedback == 5}"  />
+    <label for="mark5">5</label>
+
+    <input type="radio" id="mark6" name="numberFeedback" value="6" th:checked="${numberFeedback == 6}" checked/>
+    <label for="mark6">6</label>
+
+    <!-- Percent input for percentFeedback -->
+    <label for="percentFeedback">Percent Feedback:</label>
+    <input type="range" name="percentFeedback" id="percentFeedback" min="0" max="100" value="${percentFeedback}" />
+    <span id="percentValue" th:text="${percentFeedback}"></span>
+
+    <!-- Star rating input for starFeedback -->
+    <label class="star-label">Star Feedback:</label>
+    <div class="star-rating">
+        <input type="radio" id="star5" name="starFeedback" value="5" th:checked="${starFeedback == 5}" checked/>
+        <label for="star5" title="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</label>
+
+        <input type="radio" id="star4" name="starFeedback" value="4" th:checked="${starFeedback == 4}"/>
+        <label for="star4" title="4 stars">&#9733;&#9733;&#9733;&#9733;</label>
+
+        <input type="radio" id="star3" name="starFeedback" value="3"  th:checked="${starFeedback == 3}" />
+        <label for="star3" title="3 stars">&#9733;&#9733;&#9733;</label>
+
+        <input type="radio" id="star2" name="starFeedback" value="2" th:checked="${starFeedback == 2}"  />
+        <label for="star2" title="2 stars">&#9733;&#9733;</label>
+
+        <input type="radio" id="star1" name="starFeedback" value="1"  th:checked="${starFeedback == 1}"/>
+        <label for="star1" title="1 star">&#9733;</label>
+    </div>
+
+    <label for="yesNoFeedback">Are you comply with the idea expressed in the topic? :</label>
+    <select name="yesNoFeedback" id="yesNoFeedback">
+        <option value="yes" ${yesNoFeedback == 'yes' ? 'selected' : ''}>Yes</option>
+        <option value="no" ${yesNoFeedback == 'no' ? 'selected' : ''}>No</option>
+    </select>
+
+    <!-- Text input for textFeedback -->
+    <label for="textFeedback">Text Feedback:</label>
+    <textarea name="textFeedback" id="textFeedback" placeholder="Write your feedback..."></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById('percentFeedback').addEventListener('input', function() {
+        document.getElementById('percentValue').textContent = this.value;
+    });
+</script>
+
+</body>
+</html>

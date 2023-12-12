@@ -1,0 +1,80 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 20px;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin: 0px auto;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+input[type="radio"],
+input[type="range"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+span {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.star-rating {
+    margin-bottom: 16px;
+}
+
+.star-rating input {
+    display: inline-block;
+     opacity: 1;
+       position: absolute;
+        appearance: auto;
+        left: 0;
+}
+
+.star-rating label {
+    font-size: 24px;
+    color: #ffd700;
+    cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffd700;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #218838;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Topic Details</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/topicDetails.css}">
+</head>
+<body>
+
+<div th:unless="${topic != null}" class="topic-details">
+  <p>No topic found with the given ID.</p>
+</div>
+<div th:if="${topic != null}" class="topic-details">
+  <h1 th:text="${topic.title}"></h1>
+  <p class="topic-text" th:text="${topic.text}"></p>
+  <p class="topic-date" th:text="${topic.date}"></p>
+  <p class="average-rating" th:text="'Average rating: ' + ${topic.starRating}"></p>
+
+  <form th:method="get" th:action="'/topic/' + ${topic.id} + '/newFeedback'">
+    <button type="submit" class="add-feedback-btn">Add Feedback</button>
+  </form>
+
+  <div th:each="feedback : ${topic.feedbackList}" class="feedback-section">
+    <h3 class="feedback-id" th:text="'Feedback ID: ' + ${feedback.id}"></h3>
+
+    <ul class="feedback-list">
+      <li th:each="feedbackItem : ${feedback.feedbackItemList}" th:text="${feedbackItem.getName() + ': ' + feedbackItem.getValue()}"></li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
